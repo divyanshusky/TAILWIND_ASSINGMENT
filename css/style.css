@@ -1,0 +1,39 @@
+.menus {
+  color: black;
+}
+
+.menus:hover {
+  color: rgb(212, 141, 8);
+}
+
+
+@keyframes slideAnimation {
+  0% {
+      transform: translateX(0);
+  }
+  33% {
+      transform: translateX(-100%);
+  }
+  66% {
+      transform: translateX(-200%);
+  }
+  100% {
+      transform: translateX(0);
+  }
+}
+
+.transition-transform {
+  display: flex;
+  animation: slideAnimation 25s infinite;
+}
+
+/* Peer checked state for controlling which slide is active */
+input[type="radio"]:checked:nth-of-type(1) ~ .transition-transform {
+  transform: translateX(0);
+}
+input[type="radio"]:checked:nth-of-type(2) ~ .transition-transform {
+  transform: translateX(-100%);
+}
+input[type="radio"]:checked:nth-of-type(3) ~ .transition-transform {
+  transform: translateX(-200%);
+}
